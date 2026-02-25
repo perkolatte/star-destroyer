@@ -1,0 +1,7 @@
+.star {
+    position: absolute;
+}
+
+.star:hover {
+    cursor: pointer;
+}

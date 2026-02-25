@@ -1,26 +1,32 @@
-interface StarProps {
-  x: number
-  y: number
-  size?: number
-  brightness?: number
+import React from "react";
+import "../styles/Star.css";
+
+export interface StarProps {
+    id: string;
+    x: number;
+    y: number;
+    size: number;
+    brightness: number;
+    onClick?: () => void;
 }
 
-export const Star = ({ x, y, size = 2, brightness = 1 }: StarProps) => {
-  return (
-    <div
-      className="star"
-      style={{
-        position: 'absolute',
-        left: `${x}px`,
-        top: `${y}px`,
+const Star: React.FC<StarProps> = ({
+    id,
+    x,
+    y,
+    size = 10,
+    brightness = 1,
+    onClick,
+}) => {
+    const style: React.CSSProperties = {
+        left: `${x}%`,
+        top: `${y}%`,
         width: `${size}px`,
         height: `${size}px`,
         backgroundColor: `rgba(255, 255, 255, ${brightness})`,
-        borderRadius: '50%',
-        boxShadow: `0 0 ${size * 2}px rgba(255, 255, 255, ${brightness * 0.8})`,
-      }}
-    />
-  )
-}
+    };
 
-export default Star
+    return <div className="star" style={style} onClick={onClick} id={id}></div>;
+};
+
+export default Star;
