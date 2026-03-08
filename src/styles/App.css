@@ -1,4 +1,15 @@
-h1 {
+.app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.app h1 {
+    position: absolute;
+    z-index: 1;
+    top: 1rem;
+    left: 1rem;
     line-height: 1.1;
     font-size: 3.2em;
+    pointer-events: none;
 }

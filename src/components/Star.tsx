@@ -21,7 +21,7 @@ const Star: React.FC<StarProps> = ({
     const starRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        starRef.current?.focus();
+        starRef.current?.focus({ preventScroll: true });
     }, []);
 
     const style: React.CSSProperties = {

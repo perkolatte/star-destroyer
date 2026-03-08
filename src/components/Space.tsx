@@ -28,7 +28,6 @@ const Space = () => {
     return (
         <div
             className="space"
-            style={{ position: "absolute", width: "100%", height: "100%" }}
         >
             {starList.map((star) => (
                 <Star
