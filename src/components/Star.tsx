@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import "../styles/Star.css";
 
 export interface StarProps {
@@ -18,6 +18,12 @@ const Star: React.FC<StarProps> = ({
     brightness = 1,
     onClick,
 }) => {
+    const starRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        starRef.current?.focus();
+    }, []);
+
     const style: React.CSSProperties = {
         left: `${x}%`,
         top: `${y}%`,
@@ -26,7 +32,16 @@ const Star: React.FC<StarProps> = ({
         backgroundColor: `rgba(255, 255, 255, ${brightness})`,
     };
 
-    return <div className="star" style={style} onClick={onClick} id={id}></div>;
+    return (
+        <div
+            ref={starRef}
+            tabIndex={0}
+            className="star"
+            style={style}
+            onClick={onClick}
+            id={id}
+        ></div>
+    );
 };
 
 export default Star;
